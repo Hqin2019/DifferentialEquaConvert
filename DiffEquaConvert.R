@@ -54,6 +54,20 @@ date1<- matlab2POS(tim1) #if not specify tz, it will use the current time zone.
 ssh_data<- uv_data <- readMat("C:/Users/hniqd/Google Drive/ClimateMath/DifferentialEquaConvert//ssh_14_40day_600_3kkm_fft2_v6.mat")
 str(ssh_data)
 ssh<- ssh_data$ssh
+sum(which(ssh==0))
+#[1] 0
+sst<- array(0L, dim(ssh))
+sss<- array(0L, dim(sst))
+lon_ssh<- as.vector(ssh_data$lon)
+lat_ssh<- as.vector(ssh_data$lat)
+poslon2<- (lon_ssh>=175 & lon_ssh<= 275)
+poslat2<- abs(lat_ssh-0)<=11
+lon_ssh<- as.vector(ssh_data$lon)
+lon2<- lon_ssh[poslon2] #length is 100
+lat2<- lat_ssh[poslat2] #length is 44
+#missing line 36
+lon<-lon2
+lat<- lat2
 
 
 gg<- 9.8
