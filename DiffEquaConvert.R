@@ -34,6 +34,7 @@ lat1<- lat[poslat] #length is 88
 
 #line 18-19 from Matlab code need to be converted
 
+#line 20
 tim1<- as.vector(uv_data$tim)
 
 matlab2POS = function(x, timez = "UTC") {
@@ -66,8 +67,18 @@ lon_ssh<- as.vector(ssh_data$lon)
 lon2<- lon_ssh[poslon2] #length is 100
 lat2<- lat_ssh[poslat2] #length is 44
 #missing line 36
+#line 37
 lon<-lon2
 lat<- lat2
 
 
 gg<- 9.8
+#missing line 41-42
+#line 43
+tim2<- as.vector(ssh_data$tim)
+date2<- matlab2POS(tim2)
+
+timup<- max(tim1[1], tim2[1]) #727931
+timend<- min(tim1[length(tim1)], tim2[length(tim2)]) #737891
+
+
