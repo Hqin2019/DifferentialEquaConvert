@@ -89,5 +89,5 @@ tim<- tim1[postim1] #length is 3321
 date<- matlab2POS(tim)
 tim0<- tim
 lon0<-lon
-lat0=lat
+lat0<-lat
 
