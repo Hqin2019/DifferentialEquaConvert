@@ -80,5 +80,14 @@ date2<- matlab2POS(tim2)
 
 timup<- max(tim1[1], tim2[1]) #727931
 timend<- min(tim1[length(tim1)], tim2[length(tim2)]) #737891
+postim1<- (tim1>=timup & tim1 <= timend) #logic; length is 4908
+postim2<- (tim2>=timup & tim2 <= timend) #logic; length is 3321
 
+#missing line 51-53
+#line 54
+tim<- tim1[postim1] #length is 3321
+date<- matlab2POS(tim)
+tim0<- tim
+lon0<-lon
+lat0=lat
 
