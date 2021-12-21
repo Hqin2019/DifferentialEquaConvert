@@ -55,3 +55,5 @@ ssh_data<- uv_data <- readMat("C:/Users/hniqd/Google Drive/ClimateMath/Different
 str(ssh_data)
 ssh<- ssh_data$ssh
 
+
+gg<- 9.8
