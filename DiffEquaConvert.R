@@ -102,3 +102,6 @@ omega<- 2*pi/24/3600
 bb<- 2*omega/a
 yy<- lat*deg
 ff<- bb*yy
+
+
+
