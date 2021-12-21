@@ -91,3 +91,14 @@ tim0<- tim
 lon0<-lon
 lat0<-lat
 
+#missing line 60-61
+#line 65
+nx<- length(lon) #100
+ny<- length(lat) #44
+nt<- length(tim) #3321
+a<- 6371393
+deg<- 2*pi*a/360
+omega<- 2*pi/24/3600
+bb<- 2*omega/a
+yy<- lat*deg
+ff<- bb*yy
