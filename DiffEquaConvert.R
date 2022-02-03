@@ -26,8 +26,8 @@ str(uv_data)
 ub<- uv_data$u #array
 uv<- uv_data$v #array
 
-poslon<- (lon>=175 & lon<= 275)
-poslat<- abs(lat-0)<=11
+poslon<- which(lon>=175 & lon<= 275)
+poslat<- which(abs(lat-0)<=11)
 
 lon1<- lon[poslon]#length is 400
 lat1<- lat[poslat] #length is 88
