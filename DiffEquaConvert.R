@@ -32,6 +32,9 @@ poslat<- which(abs(lat-0)<=11)
 lon1<- lon[poslon]#length is 400
 lat1<- lat[poslat] #length is 88
 
+#ub<- ub[, poslat, poslon]
+dim(ub)
+#[1] 4908   82  167
 #line 18-19 from Matlab code need to be converted
 
 #line 20
