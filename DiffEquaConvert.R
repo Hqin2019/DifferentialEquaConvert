@@ -21,7 +21,7 @@ dim(lat01)
 
 hh<- 30
 
-uv_data <- readMat("C:/Users/hniqd/Google Drive/ClimateMath/DifferentialEquaConvert//uv_remove_14_40day_600_3kkm_smooth_std_v6.mat")
+uv_data <- readMat("uv_remove_14_40day_600_3kkm_smooth_std_v6.mat")
 str(uv_data)
 ub<- uv_data$u #array
 uv<- uv_data$v #array
