@@ -1,11 +1,11 @@
 rm(list=ls(all=TRUE)) #Clear the environment.
 #set up the working file.
-setwd("C:/Users/hniqd/Google Drive/ClimateMath/DifferentialEquaConvert")
+setwd("C:/R_Work/DE_work/DifferentialEquaConvert")
 
 # library to read matlab data formats into R
 library(R.matlab)
 # read in our data
-topo_025deg <- readMat("C:/Users/hniqd/Google Drive/ClimateMath/DifferentialEquaConvert//topo_025deg.mat")
+topo_025deg <- readMat("topo_025deg.mat")
 str(topo_025deg)
 lon<- as.vector(topo_025deg$lon)
 length(lon) #1434
