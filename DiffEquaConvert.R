@@ -1,6 +1,4 @@
 rm(list=ls(all=TRUE)) #Clear the environment.
-#set up the working file.
-setwd("C:/R_Work/DE_work/DifferentialEquaConvert")
 
 # library to read matlab data formats into R
 library(R.matlab)
