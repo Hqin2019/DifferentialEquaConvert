@@ -22,20 +22,17 @@ hh<- 30
 uv_data <- readMat("uv_remove_14_40day_600_3kkm_smooth_std_v6.mat")
 str(uv_data)
 ub<- uv_data$u #array
-uv<- uv_data$v #array
+vb<- uv_data$v #array
+lon<- as.vector(uv_data$lon)
+lat<- as.vector(uv_data$lat)
 
 poslon<- which(lon>=175 & lon<= 275)
 poslat<- which(abs(lat-0)<=11)
 
-lon1<- lon[poslon]#length is 400
-lat1<- lat[poslat] #length is 88
-
-#ub<- ub[, poslat, poslon]
-dim(ub)
-#[1] 4908   82  167
-#line 18-19 from Matlab code need to be converted
-
-#line 20
+lon1<- lon[poslon]#length is 100
+lat1<- lat[poslat] #length is 44
+ub<- ub[, poslat, poslon]
+vb<- vb[, poslat, poslon]
 tim1<- as.vector(uv_data$tim)
 
 matlab2POS = function(x, timez = "UTC") {
