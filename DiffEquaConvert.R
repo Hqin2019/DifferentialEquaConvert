@@ -114,3 +114,16 @@ aa<- bb*rr
 dt<- diff(lon[1:2])*24*3600
 dx<- diff(lon[1:2])*deg
 dy<- diff(lat[1:2])*deg
+
+nn_b<- ny*(nx+1)+nx*(ny+1) #8944
+nn<- (ny-2)*(nx-1)+(nx-2)*(ny-1) #8372
+
+#Line 98
+taux<- array(0L, dim(ssh))
+tauy<- array(0L, dim(ssh))
+rou0<- 1024
+#hh<- 30
+
+#Line 114
+
+
