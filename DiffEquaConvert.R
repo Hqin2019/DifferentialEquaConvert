@@ -17,6 +17,7 @@ dim(lon01)
 dim(lat01)
 #[1]  600 1434
 
+#line 7
 hh<- 30
 
 uv_data <- readMat("uv_remove_14_40day_600_3kkm_smooth_std_v6.mat")
@@ -50,7 +51,8 @@ matlab2POS = function(x, timez = "UTC") {
 }
 date1<- matlab2POS(tim1) #if not specify tz, it will use the current time zone.
 
-ssh_data<- uv_data <- readMat("C:/Users/hniqd/Google Drive/ClimateMath/DifferentialEquaConvert//ssh_14_40day_600_3kkm_fft2_v6.mat")
+#Line 25
+ssh_data<- uv_data <- readMat("ssh_14_40day_600_3kkm_fft2_v6.mat")
 str(ssh_data)
 ssh<- ssh_data$ssh
 sum(which(ssh==0))
@@ -61,36 +63,37 @@ lon_ssh<- as.vector(ssh_data$lon)
 lat_ssh<- as.vector(ssh_data$lat)
 poslon2<- (lon_ssh>=175 & lon_ssh<= 275)
 poslat2<- abs(lat_ssh-0)<=11
-lon_ssh<- as.vector(ssh_data$lon)
 lon2<- lon_ssh[poslon2] #length is 100
 lat2<- lat_ssh[poslat2] #length is 44
-#missing line 36
-#line 37
+ssh<- ssh[, poslat, poslon]
 lon<-lon2
 lat<- lat2
 
-
+#Line 40
 gg<- 9.8
-#missing line 41-42
-#line 43
+fai<- gg*ssh
+ssh1<- drop(fai[200, , ])
 tim2<- as.vector(ssh_data$tim)
 date2<- matlab2POS(tim2)
 
+#Line 47
 timup<- max(tim1[1], tim2[1]) #727931
 timend<- min(tim1[length(tim1)], tim2[length(tim2)]) #737891
 postim1<- (tim1>=timup & tim1 <= timend) #logic; length is 4908
 postim2<- (tim2>=timup & tim2 <= timend) #logic; length is 3321
-
-#missing line 51-53
-#line 54
+ub<- ub[postim1, , ]
+vb<- vb[postim1, , ]
+fai<- fai[postim2, , ]
 tim<- tim1[postim1] #length is 3321
 date<- matlab2POS(tim)
 tim0<- tim
 lon0<-lon
 lat0<-lat
 
-#missing line 60-61
-#line 65
+sst<- sst[postim2, poslat, poslon]
+sss<- sss[postim2, poslat, poslon]
+
+#Line 65
 nx<- length(lon) #100
 ny<- length(lat) #44
 nt<- length(tim) #3321
