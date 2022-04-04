@@ -107,5 +107,10 @@ latv<- c(lat[1]-0.5*diff(lat[1:2]), lat[1:endlat-1]+0.5*diff(lat),
          lat[endlat]+0.5*diff(lat[end-1:end]))
 x0y0<-meshgrid(lon, lat)
 
-
-
+#Line 84
+cc<- 2.8
+rr<- sqrt(cc/2/bb)
+aa<- bb*rr
+dt<- diff(lon[1:2])*24*3600
+dx<- diff(lon[1:2])*deg
+dy<- diff(lat[1:2])*deg
