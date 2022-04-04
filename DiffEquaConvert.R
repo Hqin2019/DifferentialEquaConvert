@@ -2,6 +2,8 @@ rm(list=ls(all=TRUE)) #Clear the environment.
 
 # library to read matlab data formats into R
 library(R.matlab)
+# contains the meshgrid() function.
+library(pracma)
 # read in our data
 topo_025deg <- readMat("topo_025deg.mat")
 str(topo_025deg)
@@ -9,13 +11,7 @@ lon<- as.vector(topo_025deg$lon)
 length(lon) #1434
 lat<- as.vector(topo_025deg$lat)
 length(lat) #600
-
-lon01<- t(replicate(600, lon))
-lat01<- replicate(1434, lat)
-dim(lon01)
-#[1]  600 1434
-dim(lat01)
-#[1]  600 1434
+lon01lat01<- meshgrid(lon, lat)
 
 #line 7
 hh<- 30
