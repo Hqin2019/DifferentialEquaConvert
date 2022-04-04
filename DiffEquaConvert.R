@@ -99,10 +99,12 @@ omega<- 2*pi/24/3600
 bb<- 2*omega/a
 yy<- lat*deg
 ff<- bb*yy
-end<- length(lon)
-lonu<- c(lon[1]-0.5*diff(lon[1:2]), lon[1:end-1]+0.5*diff(lon),
-         lon[end]+0.5*diff(lon[end-1:end]))
-
+endlon<- length(lon)
+lonu<- c(lon[1]-0.5*diff(lon[1:2]), lon[1:endlon-1]+0.5*diff(lon),
+         lon[endlon]+0.5*diff(lon[endlon-1:endlon]))
+endlat<- length(lat)
+latv<- c(lat[1]-0.5*diff(lat[1:2]), lat[1:endlat-1]+0.5*diff(lat),
+         lat[endlat]+0.5*diff(lat[end-1:end]))
 x0y0<-meshgrid(lon, lat)
 
 
