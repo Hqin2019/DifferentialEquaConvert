@@ -127,5 +127,26 @@ rou0<- 1024
 #hh<- 30
 
 #Line 114
+ubdn<- array(0L, dim = c(nt, ny, nx+1)) #array with dimensions: 3321x44x101
+vbdn<- array(0L, dim = c(nt, ny+1, nx)) #array with dimensions: 3321x45x100
+#Missing line 122-123
 
+#Line 125
+ul<- ubdn[, , 1] #matrix 3321x44
+ur<- ubdn[, , nx+1] #matrix 3321x44
+uu<- ubdn[, ny, ] # matrix 3321x101
+ud<- ubdn[, 1, ] #matrix 3321x101
+vu<- vbdn[, ny+1, ] #matrix 3321x100
+vd<- vbdn[, 1, ] #matrix 3321x100
+vl<- vbdn[, , 1] #matrix 3321x45
+vr<- vbdn[, , nx] #matrix 3321x45
 
+u00<- drop(ubdn[1, , ]) #matrix 44x101
+v00<- drop(vbdn[1, , ]) #matrix 45x100
+
+u1<- u00[2:(nrow(u00)-1), 2:(ncol(u00)-1)] #matrix 42x99
+v1<- v00[2:(nrow(v00)-1), 2:(ncol(v00)-1)] #matrix 43x98
+U1<- c(matrix(t(u1), nrow=1, ncol = (ny-2)*(nx-1)), 
+       matrix(t(v1), nrow=1, ncol = (nx-2)*(ny-1))) #vector with length 8372
+
+u0<- 
