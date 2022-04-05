@@ -100,12 +100,14 @@ bb<- 2*omega/a
 yy<- lat*deg
 ff<- bb*yy
 endlon<- length(lon)
-lonu<- c(lon[1]-0.5*diff(lon[1:2]), lon[1:endlon-1]+0.5*diff(lon),
-         lon[endlon]+0.5*diff(lon[endlon-1:endlon]))
+lonu<- c(lon[1]-0.5*diff(lon[1:2]), lon[1:(endlon-1)]+0.5*diff(lon),
+         lon[endlon]+0.5*diff(lon[(endlon-1):endlon]))
 endlat<- length(lat)
-latv<- c(lat[1]-0.5*diff(lat[1:2]), lat[1:endlat-1]+0.5*diff(lat),
-         lat[endlat]+0.5*diff(lat[end-1:end]))
+latv<- c(lat[1]-0.5*diff(lat[1:2]), lat[1:(endlat-1)]+0.5*diff(lat),
+         lat[endlat]+0.5*diff(lat[(endlat-1):endlat]))
 x0y0<-meshgrid(lon, lat)
+xuyu<- meshgrid(lonu, lat)
+xvyv<- meshgrid(lon, latv)
 
 #Line 84
 cc<- 2.8
