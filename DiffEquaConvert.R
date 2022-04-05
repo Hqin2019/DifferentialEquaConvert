@@ -179,5 +179,25 @@ lat<- lat0
 tim<- tim0
 
 #Line 172
+#Need to check the meaning of "1."
+ah<- 0
+aat<- 3e-4 * 1
+bbs<- 7.4e-4 * 1
+
+bsst<- gg*hh/2*aat*sst #zero array 3321x44x100
+bsss<- -gg*hh/2*bbs*sss #zero array 3321x44x100
+
+jj<- 5
+ii<- 10
+au<- 1/ii/24/3600
+av<- 1/jj/24/3600
+aau<- 1/dt+au/2
+ccu<- 1/dt-au/2
+aav<- 1/dt+av/2
+ccv<- 1/dt-av/2
+
+#Line 190
+
+
 
 
