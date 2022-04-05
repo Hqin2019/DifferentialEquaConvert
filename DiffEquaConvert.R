@@ -7,11 +7,14 @@ library(pracma)
 # read in our data
 topo_025deg <- readMat("topo_025deg.mat")
 str(topo_025deg)
+topo<- topo_025deg$topo #matrix 600x1434
 lon<- as.vector(topo_025deg$lon)
 length(lon) #1434
 lat<- as.vector(topo_025deg$lat)
 length(lat) #600
 lon01lat01<- meshgrid(lon, lat)
+lon01<- lon01lat01$X #matrix 600x1434
+lat01<- lon01lat01$Y #matrix 600x1434
 
 #line 7
 hh<- 30
@@ -107,7 +110,11 @@ latv<- c(lat[1]-0.5*diff(lat[1:2]), lat[1:(endlat-1)]+0.5*diff(lat),
          lat[endlat]+0.5*diff(lat[(endlat-1):endlat]))
 x0y0<-meshgrid(lon, lat)
 xuyu<- meshgrid(lonu, lat)
+xu<- xuyu$X #matrix 44x101
+yu<- xuyu$Y #matrix 44x101
 xvyv<- meshgrid(lon, latv)
+xv<- xvyv$X #matrix 45x100
+yv<- xvyv$Y #matrix 45x100
 
 #Line 84
 cc<- 2.8
@@ -197,7 +204,7 @@ aav<- 1/dt+av/2
 ccv<- 1/dt-av/2
 
 #Line 190
-
+topou<- interp2(lon01, lat01, topo, xu, yu, method = "linear")
 
 
 
