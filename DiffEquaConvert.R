@@ -163,5 +163,21 @@ v0[, ny+1, ]<- vu
 v0[, , 1]<- vl
 v0[, , nx]<- vr
 U0<- matrix(0L, nrow=nn_b, nt) #zero matrix 8944x3321
+#Need to ask about the dimension.
+for (i in 1:nt){
+  U0[, i]<- c(matrix(drop(u0[i, , ]), nrow=ny*(nx+1), 1), 
+              matrix(drop(v0[i, ,]),nrow = nx*(ny+1), 1))
+}
+
+u<- u0
+v<- v0
+
+#Missing line 163
+
+lon<- lon0
+lat<- lat0
+tim<- tim0
+
+#Line 172
 
 
