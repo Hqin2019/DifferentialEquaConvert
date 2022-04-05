@@ -127,26 +127,41 @@ rou0<- 1024
 #hh<- 30
 
 #Line 114
-ubdn<- array(0L, dim = c(nt, ny, nx+1)) #array with dimensions: 3321x44x101
-vbdn<- array(0L, dim = c(nt, ny+1, nx)) #array with dimensions: 3321x45x100
+ubdn<- array(0L, dim = c(nt, ny, nx+1)) #zero array with dimensions: 3321x44x101
+vbdn<- array(0L, dim = c(nt, ny+1, nx)) #zero array with dimensions: 3321x45x100
 #Missing line 122-123
 
 #Line 125
-ul<- ubdn[, , 1] #matrix 3321x44
-ur<- ubdn[, , nx+1] #matrix 3321x44
-uu<- ubdn[, ny, ] # matrix 3321x101
-ud<- ubdn[, 1, ] #matrix 3321x101
-vu<- vbdn[, ny+1, ] #matrix 3321x100
-vd<- vbdn[, 1, ] #matrix 3321x100
-vl<- vbdn[, , 1] #matrix 3321x45
-vr<- vbdn[, , nx] #matrix 3321x45
+ul<- ubdn[, , 1] #zero matrix 3321x44
+ur<- ubdn[, , nx+1] #zero matrix 3321x44
+uu<- ubdn[, ny, ] #zero matrix 3321x101
+ud<- ubdn[, 1, ] #zero matrix 3321x101
+vu<- vbdn[, ny+1, ] #zero matrix 3321x100
+vd<- vbdn[, 1, ] #zero matrix 3321x100
+vl<- vbdn[, , 1] #zero matrix 3321x45
+vr<- vbdn[, , nx] #zero matrix 3321x45
 
-u00<- drop(ubdn[1, , ]) #matrix 44x101
-v00<- drop(vbdn[1, , ]) #matrix 45x100
+u00<- drop(ubdn[1, , ]) #zero matrix 44x101
+v00<- drop(vbdn[1, , ]) #zero matrix 45x100
 
-u1<- u00[2:(nrow(u00)-1), 2:(ncol(u00)-1)] #matrix 42x99
-v1<- v00[2:(nrow(v00)-1), 2:(ncol(v00)-1)] #matrix 43x98
+u1<- u00[2:(nrow(u00)-1), 2:(ncol(u00)-1)] #zero matrix 42x99
+v1<- v00[2:(nrow(v00)-1), 2:(ncol(v00)-1)] #zero matrix 43x98
 U1<- c(matrix(t(u1), nrow=1, ncol = (ny-2)*(nx-1)), 
-       matrix(t(v1), nrow=1, ncol = (nx-2)*(ny-1))) #vector with length 8372
+       matrix(t(v1), nrow=1, ncol = (nx-2)*(ny-1))) #zero vector with length 8372
 
-u0<- 
+u0<- array(0L, dim=c(nt, ny, nx+1)) #zero array 3321x44x101
+v0<- array(0L, dim=c(nt, ny+1, nx)) #zero arary 3321x45x100
+
+u0[1, ,]<- u00
+u0[, , 1]<- ul
+u0[, , nx+1]<- ur
+u0[, 1, ]<- ud
+u0[, ny, ]<- uu
+v0[1, ,]<- v00
+v0[, 1, ]<- vd
+v0[, ny+1, ]<- vu
+v0[, , 1]<- vl
+v0[, , nx]<- vr
+U0<- matrix(0L, nrow=nn_b, nt) #zero matrix 8944x3321\
+
+
