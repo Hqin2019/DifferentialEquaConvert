@@ -162,6 +162,6 @@ v0[, 1, ]<- vd
 v0[, ny+1, ]<- vu
 v0[, , 1]<- vl
 v0[, , nx]<- vr
-U0<- matrix(0L, nrow=nn_b, nt) #zero matrix 8944x3321\
+U0<- matrix(0L, nrow=nn_b, nt) #zero matrix 8944x3321
 
 
