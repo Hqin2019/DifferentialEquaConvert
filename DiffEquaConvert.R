@@ -13,8 +13,10 @@ length(lon) #1434
 lat<- as.vector(topo_025deg$lat)
 length(lat) #600
 lon01lat01<- meshgrid(lon, lat)
-lon01<- lon01lat01$X #matrix 600x1434
-lat01<- lon01lat01$Y #matrix 600x1434
+#lon01<- lon01lat01$X #matrix 600x1434
+#lat01<- lon01lat01$Y #matrix 600x1434
+lon01<- lon
+lat01<- lat
 
 #line 7
 hh<- 30
@@ -204,7 +206,8 @@ aav<- 1/dt+av/2
 ccv<- 1/dt-av/2
 
 #Line 190
-topou<- interp2(lon01, lat01, topo, xu, yu, method = "linear")
+topou<- interp2(lon01, lat01, topo, xu, yu, method = "linear") #vector length 4444
+
 
 
 
