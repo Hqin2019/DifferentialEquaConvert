@@ -232,7 +232,18 @@ for (i in 1:(nt-1)){
       ux1<-0
       uy1<- 1.0 * uy1
       #Line 241
-      
+      #Missing line 241-244
+      #Line 246
+      A11[j, l+1]<- -vb11/4/dy-ah/2/dy/dy
+      A11[j+1, l]<- -ub11/4/dx-ah/2/dx/dx
+      A11[j+1, l+1]<- aau+ux1/2+ah/dx/dx+ah/dy/dy
+      A11[j+1, l+2]<- ub11/4/dx-ah/2/dx/dx
+      A11[j+2, l+1]<- vb11/4/dy-ah/2/dy/dy
+      A12[j+1, l]<- -(bb*lat[j+1]*deg-uy1)/8
+      A12[j+2, l+1]<- -(bb*lat[j+1]*deg-uy1)/8
+      A12[j+2, l] <- -(bb*lat[j+1]*deg-uy1)/8
+      A12[j+2, l+1]<- -(bb*lat[j+1]*deg-uy1)/8
+      A_b[(j-1)*(nx-1)+l,] = 
     }
   }
   
