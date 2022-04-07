@@ -243,10 +243,11 @@ for (i in 1:(nt-1)){
       A12[j+2, l+1]<- -(bb*lat[j+1]*deg-uy1)/8
       A12[j+2, l] <- -(bb*lat[j+1]*deg-uy1)/8
       A12[j+2, l+1]<- -(bb*lat[j+1]*deg-uy1)/8
-      A_b[(j-1)*(nx-1)+l,] = 
+      A_b[(j-1)*(nx-1)+l,] = c(matrix(A11, nrow=1, ncol=ny*(nx+1),
+                                      matrix(A12, nrow=1, ncol=nx*(ny+1))))
     }
   }
-  
+  #Line 261
 }
 
 
