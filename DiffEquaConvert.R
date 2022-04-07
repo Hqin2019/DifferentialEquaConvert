@@ -207,7 +207,36 @@ ccv<- 1/dt-av/2
 
 #Line 190
 topou<- interp2(lon01, lat01, topo, xu, yu, method = "linear") #vector length 4444
+topov<- interp2(lon01, lat01, topo, xv, yv, method = "linear") #vector length 4500
 
+#Line 196
+for (i in 1:(nt-1)){
+  fai1<- drop(colMeans(fai[i:(i+1), , ],na.rm=TRUE)) #matrix 44x100
+  bsst1<- drop(colMeans(bsst[i:(i+1), , ], na.rm=TRUE)) #matrix 44x100
+  bsss1<- drop(colMeans(bsss[i:(i+1), , ], na.rm=TRUE)) #matrix 44x100
+  fai1<- fai1-bsst1-bsss1
+  taux1<- drop(colMeans(taux[i:(i+1), ,], na.rm=TRUE))/rou0/hh #matrix 44x100
+  tauy1<- drop(colMeans(tauy[i:(i+1), ,], na.rm=TRUE))/rou0/hh #matrix 44x100
+  ub1<- drop(colMeans(ub[i:(i+1), ,], na.rm=TRUE)) #matrix 44x100
+  vb1<- drop(colMeans(vb[i:(i+1), ,], na.rm=TRUE)) #matrix 44x100
+  #Line 226
+  A_b<- matrix(0L, nrow=nn, ncol=nn_b) #zero matrix 8372x8944
+  for (j in 1:(ny-2)){
+    for (l in 1:(nx-1)){
+      A11<- matrix(0L, nrow=ny, ncol=nx+1) #zero matrix 44x101
+      A12<- matrix(0L, nrow=ny+1, ncol=nx) #zero matrix 45x100
+      ub11<- 0.5*(ub1[j+1, l]+ub1[j+1, l+1]) #scalar
+      vb11<- 0.5*(vb1[j+1, l]+vb1[j+1, l+1]) #scalar
+      uy1<- (ub1[j+2, l]-ub1[j, l]+ub1[j+2, l+1]-ub1[l, l+1])/4/dy #scalar
+      ux1<- (ub1[j+1, l+1]-ub1[j+1, l])/dx #scalar
+      ux1<-0
+      uy1<- 1.0 * uy1
+      #Line 241
+      
+    }
+  }
+  
+}
 
 
 
